@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRANJERO - Premium Private Resort</title>
+    <link rel="icon" type="image/png" href="assets/media/tab-icon.png"/>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="logo-wrapper">
+            <img src="assets/media/logo-white.png" alt="Granjero Logo" class="logo-img">
+        </div>
+
+        <nav class="navigation">
+            <a href="index.html">HOME</a>
+            <a href="rates-and-packages.html">RATES & PACKAGES</a>
+            <a href="amenities.html">AMENITIES</a>
+            <a href="contacts.html">CONTACTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="book.html" class="book-now-nav">BOOK NOW</a>
+        </nav>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <img src="assets/media/index-hero.png" alt="Granjero Resort">
+
+        <div class="hero-content">
+            <div class="hero-subtitle">EXPERIENCE LUXURY</div>
+            <h1>Where nature takes the lead</h1>
+            <div class="hero-divider"></div>
+            <p>Step away from the city and into a private countryside retreat surrounded by greenery and peace.</p>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="about.html" class="btn-primary">READ MORE</a>
+            <a href="contacts.html" class="btn-secondary">CONTACT US</a>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll to Explore</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- AVAILABILITY CHECKER SECTION -->
+    <section class="availability-section">
+        <div class="availability-container">
+            <div class="availability-header">
+                <p class="availability-label">PLAN YOUR ESCAPE</p>
+                <h2>Check Availability</h2>
+                <p class="availability-subtitle">Select your preferred package and dates to begin your Granjero experience</p>
+            </div>
+            
+            <div class="checker-card">
+                <!-- STEP 1: Package Selection -->
+                <div class="step-container" id="step1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h3>Choose Your Package</h3>
+                            <p>Select the experience that suits your occasion</p>
+                        </div>
+                    </div>
+                    
+                    <div class="package-options">
+                        <div class="package-option" data-package="day-tour" data-duration="single">
+                            <div class="package-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="package-details">
+                                <h4>Day Tour</h4>
+                                <p>9 AM - 5 PM or 11 AM - 7 PM</p>
+                                <span class="package-badge">Single Day</span>
+                            </div>
+                            <div class="package-capacity">
+                                <i class="fas fa-users"></i> Up to 50 guests
+                            </div>
+                        </div>
+                        
+                        <div class="package-option" data-package="night-tour" data-duration="single">
+                            <div class="package-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="package-details">
+                                <h4>Night Tour</h4>
+                                <p>1 PM - 11 PM or 3 PM - 11 PM</p>
+                                <span class="package-badge">Single Day</span>
+                            </div>
+                            <div class="package-capacity">
+                                <i class="fas fa-users"></i> Up to 50 guests
+                            </div>
+                        </div>
+                        
+                        <div class="package-option" data-package="overnight" data-duration="multi">
+                            <div class="package-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <div class="package-details">
+                                <h4>Overnight</h4>
+                                <p>12 NN - 8 AM or 2 PM - 10 AM</p>
+                                <span class="package-badge">Multi-Day</span>
+                            </div>
+                            <div class="package-capacity">
+                                <i class="fas fa-users"></i> Up to 50 guests
+                            </div>
+                        </div>
+                        
+                        <div class="package-option" data-package="big-event" data-duration="multi">
+                            <div class="package-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="package-details">
+                                <h4>Big Event</h4>
+                                <p>9 AM - 5 PM or 1 PM - 9 PM</p>
+                                <span class="package-badge popular">Popular</span>
+                            </div>
+                            <div class="package-capacity">
+                                <i class="fas fa-users"></i> Up to 150 guests
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Date Selection -->
+                <div class="step-container hidden" id="step2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h3>Select Your Date(s)</h3>
+                            <p id="dateInstruction">Choose your preferred date</p>
+                        </div>
+                    </div>
+                    
+                    <form class="checker-form" id="availabilityForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkIn">
+                                    <i class="fas fa-calendar-day"></i>
+                                    <span id="checkInLabel">SELECT DATE</span>
+                                </label>
+                                <input type="date" id="checkIn" required>
+                            </div>
+                            
+                            <div class="form-group" id="checkOutGroup">
+                                <label for="checkOut">
+                                    <i class="fas fa-calendar-check"></i>
+                                    CHECK-OUT DATE
+                                </label>
+                                <input type="date" id="checkOut">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guests">
+                                    <i class="fas fa-users"></i>
+                                    NUMBER OF GUESTS
+                                </label>
+                                <select id="guests" required>
+                                    <option value="">Select number of guests</option>
+                                    <option value="1-10">1-10 guests</option>
+                                    <option value="11-20">11-20 guests</option>
+                                    <option value="21-30">21-30 guests</option>
+                                    <option value="31-40">31-40 guests</option>
+                                    <option value="41-50">41-50 guests</option>
+                                    <option value="51-100" id="largeGroup1">51-100 guests</option>
+                                    <option value="101-150" id="largeGroup2">101-150 guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeSlot">
+                                    <i class="fas fa-clock"></i>
+                                    PREFERRED TIME SLOT
+                                </label>
+                                <select id="timeSlot" required>
+                                    <option value="">Select time slot</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="selected-package-summary">
+                        <div class="summary-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-details">
+                            <span class="summary-label">Selected Package:</span>
+                            <span class="summary-value" id="selectedPackageName">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="checker-actions">
+                    <button type="button" class="btn-back hidden" id="backBtn">
+                        <i class="fas fa-arrow-left"></i> BACK
+                    </button>
+                    <button type="button" class="btn-continue" id="continueBtn" disabled>
+                        CONTINUE <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button type="button" class="check-availability-btn hidden" id="checkAvailabilityBtn">
+                        <i class="fas fa-search"></i> CHECK AVAILABILITY
+                    </button>
+                </div>
+
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step active">
+                        <div class="progress-dot"></div>
+                        <span>Package</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <div class="progress-dot"></div>
+                        <span>Details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section">
+        <div class="welcome-content">
+            <a class="section-label">LAMBAKIN, JAEN NUEVA ECIJA</a>
+            <h2>GRANJERO</h2>
+            <p>Welcome to Granjero Private Resort — your exclusive escape in the heart of the countryside. Surrounded by wide open rice fields and refreshing nature views, our resort offers privacy, beauty, and a beautifully serene atmosphere. Whether you're looking to relax, celebrate, or create unforgettable memories, Granjero provides the perfect backdrop for families, friends, and special celebrations. Granjero, every moment feels intimate, cozy, and unforgettable. Book your stay today and experience the getaway you truly deserve.</p>
+            <a href="about.html" class="learn-more-btn">LEARN MORE</a>
+        </div>
+    </section>
+
+    <!-- AMENITIES SECTION -->
+    <section class="amenities-section">
+        <div class="amenities-header">
+            <h2>AMENITIES</h2>
+            <p>Enjoy the features that make your getaway smooth, cozy, and complete — from shared spaces to activity-ready facilities.</p>
+        </div>
+        
+        <div class="amenities-grid">
+            <div class="amenity-card">
+                <div class="amenity-image">
+                    <img src="assets/media/ame-1.png" alt="Swimming Pool">
+                    <div class="amenity-overlay">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                </div>
+                <h3>Swimming Pool & Jacuzzi</h3>
+                <p>Relax and unwind in our pristine pool and soothing jacuzzi.</p>
+            </div>
+            
+            <div class="amenity-card">
+                <div class="amenity-image">
+                    <img src="assets/media/ame-2.png" alt="Fire Pit">
+                    <div class="amenity-overlay">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                </div>
+                <h3>Fire Pit & Grilling Area</h3>
+                <p>Perfect for evening gatherings and outdoor cooking experiences.</p>
+            </div>
+            
+            <div class="amenity-card">
+                <div class="amenity-image">
+                    <img src="assets/media/ame-3.png" alt="Board Games">
+                    <div class="amenity-overlay">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                </div>
+                <h3>Recreational Games</h3>
+                <p>Enjoy various board games and outdoor activities for all ages.</p>
+            </div>
+        </div>
+        
+        <a href="amenities.html" class="view-all-btn">VIEW ALL AMENITIES</a>
+    </section>
+
+    <!-- ROOMS & PACKAGES SECTION -->
+    <section class="packages-section">
+        <div class="packages-header">
+            <h2>ROOMS & PACKAGES</h2>
+            <p>Find the ideal way for any occasion with our comfortable rooms and flexible packages designed for relaxation and memorable moments.</p>
+        </div>
+        
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="assets/media/rooms-1.png" alt="Room 1">
+                    <div class="package-badge">COMFORTABLE</div>
+                </div>
+                <div class="package-content">
+                    <h3>Day Tour</h3>
+                    <p>The Day Tour at Granjero runs from 9 AM to 5 PM or 11 AM to 7 PM and accommodates up to 50 pax. Guests can enjoy a full day of the resort's amenities.</p>
+                </div>
+            </div>
+            
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="assets/media/rooms-2.png" alt="Room 2">
+                    <div class="package-badge">FAMILY FRIENDLY</div>
+                </div>
+                <div class="package-content">
+                    <h3>Overnight</h3>
+                    <p>The Overnight package runs from 12 NN to 8 AM or 2 PM to 10 AM, accommodating up to 50 pax.</p>
+                </div>
+            </div>
+            
+            <div class="package-card">
+                <div class="package-image">
+                    <img src="assets/media/rooms-3.jpg" alt="Room 3">
+                    <div class="package-badge">PREMIUM</div>
+                </div>
+                <div class="package-content">
+                    <h3>Big Events</h3>
+                    <p>The Big Event package is available from 9 AM to 5 PM or 1 PM to 9 PM, accommodating up to 150 pax.</p>
+                </div>
+            </div>
+        </div>
+        
+        <a href="rates-and-packages.html" class="view-all-btn">VIEW ALL PACKAGES</a>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-section">
+        <div class="reviews-header">
+            <p class="section-label">FEEDBACKS & REVIEWS</p>
+            <h2>What Our Guests Say</h2>
+            <p>Hear from guests who've experienced Granjero firsthand — real stories, honest impressions, and moments that made their stay special.</p>
+        </div>
+        
+        <div class="reviews-container">
+            <button class="review-nav-btn prev" id="prevReview">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="review-wrapper">
+                <div class="review-card active">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Hindi lang pampamilya pang sports pa! Sobrang saya at malinis ng resort. Perfect for family bonding!"</p>
+                    <h4 class="review-author">Jose Lauren Fernando</h4>
+                    <p class="review-location">Manila, NCR</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Napakaganda ng lugar! Private and peaceful. Ang sarap mag-relax sa pool at jacuzzi. Highly recommended!"</p>
+                    <h4 class="review-author">Maria Santos Cruz</h4>
+                    <p class="review-location">Quezon City, NCR</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Best place for celebrations! Nag-celebrate kami ng birthday dito and sobrang perfect ng venue. Thank you Granjero!"</p>
+                    <h4 class="review-author">Carlos Reyes Mendoza</h4>
+                    <p class="review-location">Cabanatuan City, Nueva Ecija</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Grabe ang ganda ng view! Puro rice fields at nature. Sobrang peaceful at napaka-instagrammable! Will definitely come back!"</p>
+                    <h4 class="review-author">Angela Mae Villanueva</h4>
+                    <p class="review-location">San Jose City, Nueva Ecija</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Perfect para sa team building! Malaki ang space, complete facilities, and very accommodating ang staff. 10/10 experience!"</p>
+                    <h4 class="review-author">Roberto De Leon Garcia</h4>
+                    <p class="review-location">Angeles City, Pampanga</p>
+                </div>
+            </div>
+            
+            <button class="review-nav-btn next" id="nextReview">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <div class="review-dots" id="reviewDots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+        </div>
+    </section>
+
+    <!-- CHATBOT WIDGET -->
+    <div class="chat-button" id="chatButton">
+        <img src="assets/media/tab-icon.png" alt="Chat">
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-logo">
+                <img src="assets/media/tab-icon.png" alt="Granjero">
+            </div>
+            <div class="chat-title">
+                <h3>Granjero</h3>
+                <p>Resort Assistant</p>
+            </div>
+            <div class="close-chat" id="closeChat">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-avatar">
+                    <img src="assets/media/tab-icon.png" alt="Granjero">
+                </div>
+                <div>
+                    <div class="message-content">
+                        👋 Hi there! I'm Granjero's virtual assistant. How can I help you today?
+                    </div>
+                    <div class="timestamp" id="initialTime"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="suggested-questions" id="suggestedQuestions">
+            <div class="suggested-title">Suggested questions</div>
+            <button class="question-btn" data-question="packages">What packages do you offer?</button>
+            <button class="question-btn" data-question="schedule">What are the check-in and check-out schedules?</button>
+            <button class="question-btn" data-question="amenities">What amenities are included?</button>
+            <button class="question-btn" data-question="booking">How do I make a booking?</button>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your question here...">
+            <button class="send-btn" id="sendBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <!-- Brand Column -->
+            <div class="footer-brand">
+                <img src="assets/media/logo-white.png" alt="Granjero Logo" class="footer-logo">
+                <p class="footer-description">Your exclusive countryside escape in Nueva Ecija. Experience luxury, privacy, and nature in perfect harmony.</p>
+                <div class="footer-tagline">Where Nature Takes The Lead</div>
+                <div class="social-section">
+                    <a href="https://web.facebook.com/people/Granjero-Private-Resort/61572299381376/" target="_blank" class="social-icon" title="Follow us on Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="Follow us on Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" title="Email us">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Packages Column -->
+            <div class="footer-column">
+                <h4>Packages</h4>
+                <ul>
+                    <li><a href="rates-and-packages.html#day-tour">Day Tour</a></li>
+                    <li><a href="rates-and-packages.html#night-tour">Night Tour</a></li>
+                    <li><a href="rates-and-packages.html#overnight">Overnight Stay</a></li>
+                    <li><a href="rates-and-packages.html#big-event">Big Event</a></li>
+                    <li><a href="rates-and-packages.html#big-event-overnight">Event with Overnight</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="amenities.html">Amenities</a></li>
+                    <li><a href="amenities.html#resort-rules">Resort Rules</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="book.html">Book Now</a></li>
+                    <li><a href="contacts.html#location">Directions</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <span>Lambakin, Jaen<br>Nueva Ecija, Philippines</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                        <a href="tel:+639123456789">+63 912 345 6789</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <a href="mailto:info@granjero.com">info@granjero.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                © 2025 Granjero Private Resort. All Rights Reserved.
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+
+</body>
+</html>

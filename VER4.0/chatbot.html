@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granjero Chatbot</title>
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+       
+</head>
+<body>
+
+    <!-- Chat Button -->
+    <div class="chat-button" id="chatButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <!-- Chat Header -->
+        <div class="chat-header">
+            <div class="chat-logo">G</div>
+            <div class="chat-title">
+                <h3>Granjero</h3>
+                <p>Resort Assistant</p>
+            </div>
+            <div class="close-chat" id="closeChat">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-avatar">G</div>
+                <div>
+                    <div class="message-content">
+                        👋 Hi there! I'm Granjero's virtual assistant. How can I help you today?
+                    </div>
+                    <div class="timestamp" id="initialTime"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggested Questions -->
+        <div class="suggested-questions" id="suggestedQuestions">
+            <div class="suggested-title">Suggested questions</div>
+            <button class="question-btn" data-question="rates">What are your rates and packages?</button>
+            <button class="question-btn" data-question="amenities">What amenities do you offer?</button>
+            <button class="question-btn" data-question="location">Where are you located?</button>
+            <button class="question-btn" data-question="booking">How do I make a booking?</button>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your question here...">
+            <button class="send-btn" id="sendBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Database
+        const faqDatabase = {
+            rates: {
+                question: "What are your rates and packages?",
+                answer: "We offer several packages:\n\n• Day Tour (8am-5pm)\n• Night Tour (6pm-12mn)\n• Overnight Stay\n• Big Event Packages\n\nFor detailed pricing and availability, please visit our Rates & Packages page or contact us directly."
+            },
+            amenities: {
+                question: "What amenities do you offer?",
+                answer: "Our resort features:\n\n• Swimming Pool\n• Function Hall/Pavilion\n• Kitchen Facilities\n• Parking Area\n• Spacious Garden\n• And more!\n\nVisit our Amenities page for the complete list and details."
+            },
+            location: {
+                question: "Where are you located?",
+                answer: "We are located at Lambakin, Jaen, Nueva Ecija. Our resort is easily accessible and perfect for a quick getaway from the city!"
+            },
+            booking: {
+                question: "How do I make a booking?",
+                answer: "You can book through:\n\n1. Click the 'BOOK NOW' button on our website\n2. Contact us via phone or Facebook\n3. Visit us in person\n\nWe recommend booking in advance, especially during weekends and holidays!"
+            },
+            hours: {
+                question: "What are your operating hours?",
+                answer: "Our operating hours vary by package:\n\n• Day Tour: 8:00 AM - 5:00 PM\n• Night Tour: 6:00 PM - 12:00 MN\n• Overnight: Check-in at 2:00 PM, Check-out at 12:00 NN\n\nPlease contact us for specific inquiries."
+            },
+            contact: {
+                question: "How can I contact you?",
+                answer: "You can reach us through:\n\n📱 Phone: [Your phone number]\n📧 Email: [Your email]\n📍 Facebook: Granjero Private Resort\n\nWe're happy to answer any questions you may have!"
+            },
+            capacity: {
+                question: "What is your guest capacity?",
+                answer: "Our resort can accommodate both intimate gatherings and large events. Please contact us with your specific requirements, and we'll help you plan the perfect event!"
+            }
+        };
+
+        // Keywords mapping
+        const keywordMapping = {
+            'rate': 'rates', 'rates': 'rates', 'price': 'rates', 'cost': 'rates', 'package': 'rates', 'packages': 'rates',
+            'amenity': 'amenities', 'amenities': 'amenities', 'facility': 'amenities', 'facilities': 'amenities', 'pool': 'amenities',
+            'location': 'location', 'where': 'location', 'address': 'location', 'direction': 'location',
+            'book': 'booking', 'booking': 'booking', 'reserve': 'booking', 'reservation': 'booking',
+            'hours': 'hours', 'time': 'hours', 'open': 'hours', 'schedule': 'hours',
+            'contact': 'contact', 'phone': 'contact', 'email': 'contact', 'reach': 'contact',
+            'capacity': 'capacity', 'guests': 'capacity', 'people': 'capacity', 'accommodate': 'capacity'
+        };
+
+        // Elements
+        const chatButton = document.getElementById('chatButton');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const suggestedQuestions = document.getElementById('suggestedQuestions');
+
+        // Initialize
+        document.getElementById('initialTime').textContent = getCurrentTime();
+
+        // Toggle chat
+        chatButton.addEventListener('click', () => {
+            chatContainer.classList.toggle('active');
+            chatButton.classList.toggle('active');
+            if (chatContainer.classList.contains('active')) {
+                chatInput.focus();
+            }
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatContainer.classList.remove('active');
+            chatButton.classList.remove('active');
+        });
+
+        // Suggested questions
+        document.querySelectorAll('.question-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const question = btn.dataset.question;
+                handleUserMessage(faqDatabase[question].question, question);
+            });
+        });
+
+        // Send message
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                handleUserMessage(message);
+                chatInput.value = '';
+            }
+        }
+
+        function handleUserMessage(message, directKey = null) {
+            // Add user message
+            addMessage(message, 'user');
+
+            // Hide suggested questions after first interaction
+            suggestedQuestions.style.display = 'none';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Find response
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                let responseKey = directKey;
+                
+                if (!responseKey) {
+                    // Search for keywords in message
+                    const messageLower = message.toLowerCase();
+                    for (const [keyword, key] of Object.entries(keywordMapping)) {
+                        if (messageLower.includes(keyword)) {
+                            responseKey = key;
+                            break;
+                        }
+                    }
+                }
+
+                if (responseKey && faqDatabase[responseKey]) {
+                    addMessage(faqDatabase[responseKey].answer, 'bot');
+                } else {
+                    addMessage("I'm sorry, I didn't quite understand that. Here are some topics I can help you with:\n\n• Rates & Packages\n• Amenities\n• Location\n• Booking Process\n• Contact Information\n\nPlease try asking about one of these, or feel free to contact us directly for more specific inquiries!", 'bot');
+                }
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            if (sender === 'bot') {
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">G</div>
+                    <div>
+                        <div class="message-content">${text.replace(/\n/g, '<br>')}</div>
+                        <div class="timestamp">${getCurrentTime()}</div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div>
+                        <div class="message-content">${text}</div>
+                        <div class="timestamp">${getCurrentTime()}</div>
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const indicator = document.createElement('div');
+            indicator.className = 'message bot';
+            indicator.id = 'typingIndicator';
+            indicator.innerHTML = `
+                <div class="message-avatar">G</div>
+                <div class="typing-indicator active">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            chatMessages.appendChild(indicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        function getCurrentTime() {
+            const now = new Date();
+            return now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+    </script>
+
+</body>
+</html>

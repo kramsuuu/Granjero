@@ -1,0 +1,275 @@
+
+/* Page Load Animation */
+body {
+    opacity: 0;
+    animation: fadeInPage 0.8s ease-in forwards;
+}
+
+@keyframes fadeInPage {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Smooth scroll reveal for sections */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero section special entrance */
+.hero-content {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroEntrance 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes heroEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards staggered animation */
+.package-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.package-card.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger delay for multiple cards */
+.package-card:nth-child(1).animate-in {
+    transition-delay: 0.1s;
+}
+
+.package-card:nth-child(2).animate-in {
+    transition-delay: 0.2s;
+}
+
+.package-card:nth-child(3).animate-in {
+    transition-delay: 0.3s;
+}
+
+/* Page transition overlay */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-gold) 100%);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Elegant curtain effect */
+.page-transition::before,
+.page-transition::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: var(--primary-green);
+    left: 0;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-transition::before {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.page-transition::after {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.page-transition.active::before {
+    transform: translateY(0);
+}
+
+.page-transition.active::after {
+    transform: translateY(0);
+}
+
+/* Logo animation during transition */
+.transition-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 10000;
+}
+
+.page-transition.active .transition-logo {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition-delay: 0.2s;
+}
+
+.transition-logo img {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+}
+
+/* Header fade-in animation */
+.main-header {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: headerSlideIn 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes headerSlideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation links stagger */
+.navigation a {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: navLinkFadeIn 0.5s ease-out forwards;
+}
+
+.navigation a:nth-child(1) { animation-delay: 0.3s; }
+.navigation a:nth-child(2) { animation-delay: 0.4s; }
+.navigation a:nth-child(3) { animation-delay: 0.5s; }
+.navigation a:nth-child(4) { animation-delay: 0.6s; }
+.navigation a:nth-child(5) { animation-delay: 0.7s; }
+.navigation a:nth-child(6) { animation-delay: 0.8s; }
+
+@keyframes navLinkFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll indicator animation */
+.scroll-indicator {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Smooth scrolling enhanced */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section title animations */
+.section-title,
+.tour-header h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-title.is-visible,
+.tour-header.is-visible h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Intro section animation */
+.intro-content {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.intro-content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Notes section animation */
+.note-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.note-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.note-item:nth-child(1) { transition-delay: 0.1s; }
+.note-item:nth-child(2) { transition-delay: 0.2s; }
+.note-item:nth-child(3) { transition-delay: 0.3s; }
+
+/* CTA section animation */
+.cta-content {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cta-content.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Footer fade-in */
+.site-footer {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.site-footer.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading state prevention */
+.no-transitions * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    body {
+        animation: none;
+        opacity: 1;
+    }
+}

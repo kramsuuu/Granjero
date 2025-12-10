@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRANJERO - Book Now</title>
+    <link rel="icon" type="image/png" href="assets/media/tab-icon.png" />
+    <link rel="stylesheet" href="assets/css/book.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-wrapper">
+        <img src="assets/media/logo.png" alt="Granjero Logo" class="logo-img" />
+      </div>
+
+      <nav class="navigation">
+        <a href="index.html">HOME</a>
+        <a href="rates-and-packages.html">RATES & PACKAGES</a>
+        <a href="amenities.html">AMENITIES</a>
+        <a href="contacts.html">CONTACTS</a>
+        <a href="about.html">ABOUT</a>
+        <a href="book.html" class="book-now-nav">BOOK NOW</a>
+      </nav>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section" id="heroSection">
+        <img src="assets/media/book-hero.png" alt="Granjero Resort" />
+        <div class="hero-content">
+          <div class="hero-subtitle">EXPERIENCE LUXURY</div>
+          <h1>Book Your Escape</h1>
+          <div class="hero-divider"></div>
+          <p>Your journey to tranquility begins here</p>
+        </div>
+        <div class="scroll-indicator">
+          <span>Scroll to Begin</span>
+          <div class="scroll-arrow">↓</div>
+        </div>
+      </section>
+
+      <!-- STEP 1: Package Selection -->
+      <section class="booking-section" id="step1-package">
+        <div class="step-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-indicator active" data-step="1">
+              <div class="step-circle">1</div>
+              <span>Package</span>
+            </div>
+            <div class="step-indicator" data-step="2">
+              <div class="step-circle">2</div>
+              <span>Date & Time</span>
+            </div>
+            <div class="step-indicator" data-step="3">
+              <div class="step-circle">3</div>
+              <span>Customize</span>
+            </div>
+            <div class="step-indicator" data-step="4">
+              <div class="step-circle">4</div>
+              <span>Review</span>
+            </div>
+            <div class="step-indicator" data-step="5">
+              <div class="step-circle">5</div>
+              <span>Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-container">
+          <div class="step-header">
+            <h2>Choose Your Package</h2>
+            <p>Select the perfect experience for your occasion</p>
+          </div>
+
+          <div class="packages-grid">
+            <!-- Day Tour -->
+            <div class="package-category">
+              <h3 class="category-title">
+                <i class="fas fa-sun"></i>
+                Day Tour
+              </h3>
+              <p class="category-desc">
+                Perfect for daytime gatherings and celebrations
+              </p>
+
+              <div class="package-options">
+                <div
+                  class="package-option"
+                  data-package="day-tour-no-room"
+                  data-category="day-tour"
+                >
+                  <div class="package-badge">MOST POPULAR</div>
+                  <div class="package-header">
+                    <h4>No Room</h4>
+                    <div class="package-price">₱5,000</div>
+                  </div>
+                  <p class="package-desc">Access to all resort amenities</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> Full amenities access</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="day-tour-one-room"
+                  data-category="day-tour"
+                >
+                  <div class="package-header">
+                    <h4>One Room</h4>
+                    <div class="package-price">₱6,000</div>
+                  </div>
+                  <p class="package-desc">Includes private room access</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 1 Private room</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="day-tour-two-rooms"
+                  data-category="day-tour"
+                >
+                  <div class="package-header">
+                    <h4>Two Rooms</h4>
+                    <div class="package-price">₱7,000</div>
+                  </div>
+                  <p class="package-desc">Maximum comfort with two rooms</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 2 Private rooms</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Night Tour -->
+            <div class="package-category">
+              <h3 class="category-title">
+                <i class="fas fa-moon"></i>
+                Night Tour
+              </h3>
+              <p class="category-desc">Enjoy the resort under the stars</p>
+
+              <div class="package-options">
+                <div
+                  class="package-option"
+                  data-package="night-tour-no-room"
+                  data-category="night-tour"
+                >
+                  <div class="package-header">
+                    <h4>No Room</h4>
+                    <div class="package-price">₱6,000</div>
+                  </div>
+                  <p class="package-desc">Evening amenities access</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> Full amenities access</li>
+                    <li><i class="fas fa-check"></i> 4-8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="night-tour-one-room"
+                  data-category="night-tour"
+                >
+                  <div class="package-header">
+                    <h4>One Room</h4>
+                    <div class="package-price">₱7,000</div>
+                  </div>
+                  <p class="package-desc">Night tour with private room</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 1 Private room</li>
+                    <li><i class="fas fa-check"></i> 4-8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="night-tour-two-rooms"
+                  data-category="night-tour"
+                >
+                  <div class="package-header">
+                    <h4>Two Rooms</h4>
+                    <div class="package-price">₱8,000</div>
+                  </div>
+                  <p class="package-desc">Premium night experience</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 2 Private rooms</li>
+                    <li><i class="fas fa-check"></i> 4-8 hours duration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overnight -->
+            <div class="package-category">
+              <h3 class="category-title">
+                <i class="fas fa-bed"></i>
+                Overnight Stay
+              </h3>
+              <p class="category-desc">
+                Extended experience with overnight accommodation
+              </p>
+
+              <div class="package-options">
+                <div
+                  class="package-option"
+                  data-package="overnight-one-room"
+                  data-category="overnight"
+                >
+                  <div class="package-header">
+                    <h4>One Room</h4>
+                    <div class="package-price">₱9,000</div>
+                  </div>
+                  <p class="package-desc">Overnight with one room</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 1 Private room</li>
+                    <li><i class="fas fa-check"></i> 17 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="overnight-two-rooms"
+                  data-category="overnight"
+                >
+                  <div class="package-header">
+                    <h4>Two Rooms</h4>
+                    <div class="package-price">₱10,000</div>
+                  </div>
+                  <p class="package-desc">Overnight with two rooms</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 50 guests</li>
+                    <li><i class="fas fa-check"></i> 2 Private rooms</li>
+                    <li><i class="fas fa-check"></i> 17 hours duration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Event -->
+            <div class="package-category">
+              <h3 class="category-title">
+                <i class="fas fa-calendar-star"></i>
+                Big Event
+              </h3>
+              <p class="category-desc">
+                For larger celebrations up to 150 guests
+              </p>
+
+              <div class="package-options">
+                <div
+                  class="package-option"
+                  data-package="big-event-no-room"
+                  data-category="big-event"
+                >
+                  <div class="package-badge popular">BEST VALUE</div>
+                  <div class="package-header">
+                    <h4>No Room</h4>
+                    <div class="package-price">₱8,000</div>
+                  </div>
+                  <p class="package-desc">Perfect for big celebrations</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 150 guests</li>
+                    <li><i class="fas fa-check"></i> Full amenities access</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="big-event-one-room"
+                  data-category="big-event"
+                >
+                  <div class="package-header">
+                    <h4>One Room</h4>
+                    <div class="package-price">₱9,000</div>
+                  </div>
+                  <p class="package-desc">Big event with private room</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 150 guests</li>
+                    <li><i class="fas fa-check"></i> 1 Private room</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="big-event-two-rooms"
+                  data-category="big-event"
+                >
+                  <div class="package-header">
+                    <h4>Two Rooms</h4>
+                    <div class="package-price">₱10,000</div>
+                  </div>
+                  <p class="package-desc">Premium big event package</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 150 guests</li>
+                    <li><i class="fas fa-check"></i> 2 Private rooms</li>
+                    <li><i class="fas fa-check"></i> 8 hours duration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Big Event Overnight -->
+            <div class="package-category">
+              <h3 class="category-title">
+                <i class="fas fa-star"></i>
+                Big Event + Overnight
+              </h3>
+              <p class="category-desc">
+                Ultimate celebration with overnight stay
+              </p>
+
+              <div class="package-options">
+                <div
+                  class="package-option"
+                  data-package="big-event-overnight-one-room"
+                  data-category="big-event-overnight"
+                >
+                  <div class="package-header">
+                    <h4>One Room</h4>
+                    <div class="package-price">₱11,000</div>
+                  </div>
+                  <p class="package-desc">Extended celebration package</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 150 guests</li>
+                    <li><i class="fas fa-check"></i> 1 Private room</li>
+                    <li><i class="fas fa-check"></i> 17 hours duration</li>
+                  </ul>
+                </div>
+
+                <div
+                  class="package-option"
+                  data-package="big-event-overnight-two-rooms"
+                  data-category="big-event-overnight"
+                >
+                  <div class="package-badge premium">PREMIUM</div>
+                  <div class="package-header">
+                    <h4>Two Rooms</h4>
+                    <div class="package-price">₱12,000</div>
+                  </div>
+                  <p class="package-desc">Ultimate celebration experience</p>
+                  <ul class="package-features">
+                    <li><i class="fas fa-check"></i> Up to 150 guests</li>
+                    <li><i class="fas fa-check"></i> 2 Private rooms</li>
+                    <li><i class="fas fa-check"></i> 17 hours duration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn-continue" id="continueToDateTime" disabled>
+              CONTINUE <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2: Date & Time Selection -->
+      <section class="booking-section hidden" id="step2-datetime">
+        <div class="step-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 40%"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-indicator completed" data-step="1">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Package</span>
+            </div>
+            <div class="step-indicator active" data-step="2">
+              <div class="step-circle">2</div>
+              <span>Date & Time</span>
+            </div>
+            <div class="step-indicator" data-step="3">
+              <div class="step-circle">3</div>
+              <span>Customize</span>
+            </div>
+            <div class="step-indicator" data-step="4">
+              <div class="step-circle">4</div>
+              <span>Review</span>
+            </div>
+            <div class="step-indicator" data-step="5">
+              <div class="step-circle">5</div>
+              <span>Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-container">
+          <div class="step-header">
+            <h2>Select Date & Time</h2>
+            <p>Choose when you'd like to visit</p>
+          </div>
+
+          <div class="datetime-selector">
+            <div class="date-selector">
+              <label>
+                <i class="fas fa-calendar-day"></i>
+                <span>Select Date</span>
+              </label>
+              <input type="date" id="bookingDate" required />
+              <p class="helper-text">
+                Please select your preferred booking date
+              </p>
+            </div>
+
+            <div class="time-selector">
+              <label>
+                <i class="fas fa-clock"></i>
+                <span>Select Time Slot</span>
+              </label>
+              <div class="time-slots" id="timeSlots">
+                <!-- Time slots will be populated by JavaScript -->
+              </div>
+              <p class="helper-text">Choose your preferred time slot</p>
+            </div>
+
+            <div class="guests-selector">
+              <label>
+                <i class="fas fa-users"></i>
+                <span>Number of Guests</span>
+              </label>
+              <select id="guestCount" required>
+                <option value="">Select number of guests</option>
+                <option value="1-10">1-10 guests</option>
+                <option value="11-20">11-20 guests</option>
+                <option value="21-30">21-30 guests</option>
+                <option value="31-40">31-40 guests</option>
+                <option value="41-50">41-50 guests</option>
+                <option value="51-100">51-100 guests</option>
+                <option value="101-150">101-150 guests</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn-back" id="backToPackage">
+              <i class="fas fa-arrow-left"></i> BACK
+            </button>
+            <button class="btn-continue" id="continueToCustomize" disabled>
+              CONTINUE <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Customize with Add-ons -->
+      <section class="booking-section hidden" id="step3-customize">
+        <div class="step-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-indicator completed" data-step="1">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Package</span>
+            </div>
+            <div class="step-indicator completed" data-step="2">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Date & Time</span>
+            </div>
+            <div class="step-indicator active" data-step="3">
+              <div class="step-circle">3</div>
+              <span>Customize</span>
+            </div>
+            <div class="step-indicator" data-step="4">
+              <div class="step-circle">4</div>
+              <span>Review</span>
+            </div>
+            <div class="step-indicator" data-step="5">
+              <div class="step-circle">5</div>
+              <span>Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-container">
+          <div class="step-header">
+            <h2>Enhance Your Experience</h2>
+            <p>Add optional amenities to make your stay even better</p>
+          </div>
+
+          <div class="addons-grid">
+            <!-- Checkbox Add-ons -->
+            <div class="addon-card">
+              <div class="addon-icon"><i class="fas fa-microphone"></i></div>
+              <h4>Videoke System</h4>
+              <p>24-hour access</p>
+              <div class="addon-price">₱500</div>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="videoke" data-price="500" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-icon"><i class="fas fa-fire"></i></div>
+              <h4>LPG Tank</h4>
+              <p>Per day</p>
+              <div class="addon-price">₱200</div>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="lpg" data-price="200" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-icon"><i class="fas fa-fire-alt"></i></div>
+              <h4>Bonfire Wood</h4>
+              <p>Per sack</p>
+              <div class="addon-price">₱100</div>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="bonfire" data-price="100" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="addon-card">
+              <div class="addon-icon"><i class="fas fa-campground"></i></div>
+              <h4>Camping Tent</h4>
+              <p>Per tent</p>
+              <div class="addon-price">₱500</div>
+              <label class="addon-checkbox">
+                <input type="checkbox" id="tent" data-price="500" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <!-- Counter Add-ons -->
+            <div class="addon-card counter">
+              <div class="addon-icon"><i class="fas fa-chair"></i></div>
+              <h4>Extra Chairs</h4>
+              <p>₱10 per chair</p>
+              <div class="counter-control">
+                <button class="counter-btn minus" data-target="extraChair">
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="extraChair"
+                  value="0"
+                  min="0"
+                  readonly
+                />
+                <button class="counter-btn plus" data-target="extraChair">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="addon-card counter">
+              <div class="addon-icon"><i class="fas fa-table"></i></div>
+              <h4>Extra Tables</h4>
+              <p>₱100 per table</p>
+              <div class="counter-control">
+                <button class="counter-btn minus" data-target="extraTable">
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="extraTable"
+                  value="0"
+                  min="0"
+                  readonly
+                />
+                <button class="counter-btn plus" data-target="extraTable">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="addon-card counter">
+              <div class="addon-icon"><i class="fas fa-user-plus"></i></div>
+              <h4>Extra Guests</h4>
+              <p>₱1,000 per guest</p>
+              <div class="counter-control">
+                <button class="counter-btn minus" data-target="extraGuest">
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="extraGuest"
+                  value="0"
+                  min="0"
+                  readonly
+                />
+                <button class="counter-btn plus" data-target="extraGuest">
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="addon-card counter">
+              <div class="addon-icon"><i class="fas fa-clock"></i></div>
+              <h4>Extra Time</h4>
+              <p>₱500 per hour</p>
+              <div class="counter-control">
+                <button class="counter-btn minus" data-target="extraTime">
+                  −
+                </button>
+                <input
+                  type="number"
+                  id="extraTime"
+                  value="0"
+                  min="0"
+                  readonly
+                />
+                <button class="counter-btn plus" data-target="extraTime">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn-back" id="backToDateTime">
+              <i class="fas fa-arrow-left"></i> BACK
+            </button>
+            <button class="btn-continue" id="continueToReview">
+              CONTINUE <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 4: Review Booking -->
+      <section class="booking-section hidden" id="step4-review">
+        <div class="step-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 80%"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-indicator completed" data-step="1">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Package</span>
+            </div>
+            <div class="step-indicator completed" data-step="2">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Date & Time</span>
+            </div>
+            <div class="step-indicator completed" data-step="3">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Customize</span>
+            </div>
+            <div class="step-indicator active" data-step="4">
+              <div class="step-circle">4</div>
+              <span>Review</span>
+            </div>
+            <div class="step-indicator" data-step="5">
+              <div class="step-circle">5</div>
+              <span>Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-container">
+          <div class="step-header">
+            <h2>Review Your Booking</h2>
+            <p>Please confirm your details before proceeding to payment</p>
+          </div>
+
+          <div class="review-container">
+            <div class="review-left">
+              <div class="review-section">
+                <h3><i class="fas fa-box"></i> Package Details</h3>
+                <div id="reviewPackage" class="review-content"></div>
+              </div>
+
+              <div class="review-section">
+                <h3><i class="fas fa-calendar-alt"></i> Date & Time</h3>
+                <div id="reviewDateTime" class="review-content"></div>
+              </div>
+
+              <div class="review-section">
+                <h3><i class="fas fa-plus-circle"></i> Add-ons</h3>
+                <div id="reviewAddons" class="review-content"></div>
+              </div>
+
+              <div class="review-section">
+                <h3><i class="fas fa-user"></i> Your Information</h3>
+                <form id="customerForm" class="customer-form">
+                  <div class="form-group">
+                    <label>First Name *</label>
+                    <input type="text" id="firstName" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name *</label>
+                    <input type="text" id="lastName" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="email" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="09XXXXXXXXX"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>Special Requests (Optional)</label>
+                    <textarea id="notes" rows="3"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="review-right">
+              <div class="price-summary">
+                <h3>Price Summary</h3>
+                <div id="priceSummary" class="summary-items"></div>
+                <div class="summary-total">
+                  <span>TOTAL</span>
+                  <span id="totalPrice">₱0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn-back" id="backToCustomize">
+              <i class="fas fa-arrow-left"></i> BACK
+            </button>
+            <button class="btn-continue" id="continueToPayment">
+              PROCEED TO PAYMENT <i class="fas fa-lock"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 5: Payment -->
+      <section class="booking-section hidden" id="step5-payment">
+        <div class="step-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 100%"></div>
+          </div>
+          <div class="step-indicators">
+            <div class="step-indicator completed" data-step="1">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Package</span>
+            </div>
+            <div class="step-indicator completed" data-step="2">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Date & Time</span>
+            </div>
+            <div class="step-indicator completed" data-step="3">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Customize</span>
+            </div>
+            <div class="step-indicator completed" data-step="4">
+              <div class="step-circle"><i class="fas fa-check"></i></div>
+              <span>Review</span>
+            </div>
+            <div class="step-indicator active" data-step="5">
+              <div class="step-circle">5</div>
+              <span>Payment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-container">
+          <div class="step-header">
+            <h2>Complete Your Payment</h2>
+            <p>Choose your preferred payment method</p>
+          </div>
+
+          <div class="payment-container">
+            <div class="payment-methods">
+              <div class="payment-option" data-method="gcash">
+                <input type="radio" name="payment" id="gcash" value="gcash" />
+                <label for="gcash">
+                  <div class="payment-icon">📱</div>
+                  <div class="payment-details">
+                    <h4>GCash</h4>
+                    <p>Pay via GCash mobile wallet</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-option" data-method="card">
+                <input type="radio" name="payment" id="card" value="card" />
+                <label for="card">
+                  <div class="payment-icon">💳</div>
+                  <div class="payment-details">
+                    <h4>Credit/Debit Card</h4>
+                    <p>Visa, Mastercard accepted</p>
+                  </div>
+                </label>
+              </div>
+
+              <div class="payment-option" data-method="bank">
+                <input type="radio" name="payment" id="bank" value="bank" />
+                <label for="bank">
+                  <div class="payment-icon">🏦</div>
+                  <div class="payment-details">
+                    <h4>Bank Transfer</h4>
+                    <p>Direct bank deposit</p>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div class="payment-forms">
+              <div class="payment-form hidden" id="gcashForm">
+                <h4>GCash Payment Details</h4>
+                <div class="form-group">
+                  <label>GCash Number</label>
+                  <input type="tel" placeholder="09XXXXXXXXX" required />
+                </div>
+                <div class="form-group">
+                  <label>Account Name</label>
+                  <input type="text" required />
+                </div>
+              </div>
+
+              <div class="payment-form hidden" id="cardForm">
+                <h4>Card Information</h4>
+                <div class="form-group">
+                  <label>Card Number</label>
+                  <input
+                    type="text"
+                    placeholder="1234 5678 9012 3456"
+                    maxlength="19"
+                    required
+                  />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Expiry Date</label>
+                    <input
+                      type="text"
+                      placeholder="MM/YY"
+                      maxlength="5"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label>CVV</label>
+                    <input
+                      type="text"
+                      placeholder="123"
+                      maxlength="3"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Cardholder Name</label>
+                  <input type="text" required />
+                </div>
+              </div>
+
+              <div class="payment-form hidden" id="bankForm">
+                <h4>Bank Transfer Information</h4>
+                <div class="bank-details">
+                  <p><strong>Bank:</strong> BDO Unibank</p>
+                  <p><strong>Account Name:</strong> Granjero Private Resort</p>
+                  <p><strong>Account Number:</strong> 1234-5678-9012</p>
+                </div>
+                <div class="form-group">
+                  <label>Reference Number</label>
+                  <input
+                    type="text"
+                    placeholder="Transaction reference"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-summary">
+              <h4>Payment Summary</h4>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="paymentSubtotal">₱0</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total Amount</span>
+                <span id="paymentTotal">₱0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-actions">
+            <button class="btn-back" id="backToReview">
+              <i class="fas fa-arrow-left"></i> BACK
+            </button>
+            <button class="btn-continue primary" id="completeBooking">
+              <i class="fas fa-check-circle"></i> COMPLETE BOOKING
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 6: Receipt/Confirmation -->
+      <section class="receipt-section hidden" id="step6-receipt">
+        <div class="confetti-canvas" id="confettiCanvas"></div>
+
+        <div class="receipt-container">
+          <div class="success-animation">
+            <div class="success-checkmark">
+              <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+                <div class="icon-circle"></div>
+                <div class="icon-fix"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="receipt-header">
+            <img
+              src="assets/media/logo.png"
+              alt="Granjero"
+              class="receipt-logo"
+            />
+            <h1>Booking Confirmed!</h1>
+            <p class="receipt-subtitle">
+              Thank you for choosing Granjero Private Resort
+            </p>
+            <div class="booking-reference">
+              <span>Booking Reference</span>
+              <strong id="bookingReference">GRJ-2025-XXXXXX</strong>
+            </div>
+          </div>
+
+          <div class="receipt-body">
+            <div class="receipt-section">
+              <h3><i class="fas fa-user-circle"></i> Guest Information</h3>
+              <div id="receiptGuest" class="receipt-info"></div>
+            </div>
+
+            <div class="receipt-section">
+              <h3><i class="fas fa-calendar-check"></i> Booking Details</h3>
+              <div id="receiptDetails" class="receipt-info"></div>
+            </div>
+
+            <div class="receipt-section">
+              <h3><i class="fas fa-receipt"></i> Payment Summary</h3>
+              <div id="receiptSummary" class="receipt-info"></div>
+              <div class="receipt-total">
+                <span>Total Paid</span>
+                <span id="receiptTotal">₱0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="receipt-actions">
+            <button class="receipt-btn primary" id="downloadReceipt">
+              <i class="fas fa-download"></i> Download Receipt
+            </button>
+            <button class="receipt-btn secondary" id="printReceipt">
+              <i class="fas fa-print"></i> Print Receipt
+            </button>
+            <a href="index.html" class="receipt-btn outline">
+              <i class="fas fa-home"></i> Return to Home
+            </a>
+          </div>
+
+          <div class="receipt-footer">
+            <p>We're excited to welcome you to Granjero!</p>
+            <p>
+              For any questions, contact us at
+              <a href="mailto:info@granjero.com">info@granjero.com</a> or +63
+              917 123 4567
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <img
+            src="assets/media/logo.png"
+            alt="Granjero Logo"
+            class="footer-logo"
+          />
+          <p class="footer-description">
+            Your exclusive countryside escape in Nueva Ecija. Experience luxury,
+            privacy, and nature in perfect harmony.
+          </p>
+          <div class="footer-tagline">Where Nature Takes The Lead</div>
+          <div class="social-section">
+            <a
+              href="https://web.facebook.com/people/Granjero-Private-Resort/61572299381376/"
+              target="_blank"
+              class="social-icon"
+              title="Follow us on Facebook"
+            >
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" title="Follow us on Instagram">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" title="Email us">
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Packages</h4>
+          <ul>
+            <li><a href="rates-and-packages.html#day-tour">Day Tour</a></li>
+            <li><a href="rates-and-packages.html#night-tour">Night Tour</a></li>
+            <li>
+              <a href="rates-and-packages.html#overnight">Overnight Stay</a>
+            </li>
+            <li><a href="rates-and-packages.html#big-event">Big Event</a></li>
+            <li>
+              <a href="rates-and-packages.html#big-event-overnight"
+                >Event with Overnight</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="amenities.html">Amenities</a></li>
+            <li><a href="amenities.html#resort-rules">Resort Rules</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="book.html">Book Now</a></li>
+            <li><a href="contacts.html#location">Directions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Get in Touch</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Lambakin, Jaen<br />Nueva Ecija, Philippines</span>
+            </div>
+            <div class="contact-item">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                />
+              </svg>
+              <a href="tel:+639123456789">+63 912 345 6789</a>
+            </div>
+            <div class="contact-item">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <a href="mailto:info@granjero.com">info@granjero.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <div class="copyright">
+          © 2025 Granjero Private Resort. All Rights Reserved.
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/book.js"></script>
+  </body>
+</html>
